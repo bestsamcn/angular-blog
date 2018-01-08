@@ -1,27 +1,39 @@
-# AngularBlog
+# Angular-Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
+## 注意
+由于node环境的问题，我本地打包后会导致android机和mac safari无法访问，目前只有window和iphone能够正常访问博客。
 
-## Development server
+## 简介
+Angular-Blog 是一个基于``Angular+express``的前后端分离的响应式web项目，另有[React版本](https://github.com/bestsamcn/react-blog)和[Vue版本](https://github.com/bestsamcn/react-blog)。
+- 前端使用了vue2全家桶完成，包括了``vue + vue-router + axios + vuex + element-ui``;
+- 后端接口利用 ``express + mongodb + redis`` 开发，后端地址[请点我](https://github.com/bestsamcn/node-blog)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 环境
+- node v6
+- npm  v4
+- angular  v4.0
 
-## Code scaffolding
+## 开发
+```
+git clone https://github.com/bestsamcn/angular-blog.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+cd vue-blog
 
-## Build
+npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+npm run dev
 
-## Running unit tests
+npm run build
+```
+## 图片
+![piture](https://github.com/bestsamcn/vue-blog/blob/master/picture/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 预览
+- 项目总体完成，部分细节有待修改。
+- [请点击我](http://react.bestsamcn.me/)预览react版本
+- [请点击我](http://blog.bestsamcn.me/)预览vue版本
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## 后续
+给个星星呗...
