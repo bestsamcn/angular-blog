@@ -4,30 +4,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { CommonComponent } from './common/common.component';
-import { HeaderComponent } from './common/header/header.component';
-import { FooterComponent } from './common/footer/footer.component';
-import { ToastComponent } from './common/toast/toast.component';
-import { LoadingComponent } from './common/loading/loading.component';
-import { BackTopComponent } from './common/back-top/back-top.component';
-import { BackTopDirective } from './common/back-top/back-top.directive';
+import { LayoutModule } from './layout/layout.module';
+
 
 
 @NgModule({
     declarations: [
-        AppComponent,
-        CommonComponent,
-        HeaderComponent,
-        FooterComponent,
-        ToastComponent,
-        LoadingComponent,
-        BackTopComponent,
-        BackTopDirective
+        AppComponent
     ],
     imports: [
         BrowserModule,
-        RouterModule
+        RouterModule,
+        LayoutModule
     ],
+    
     providers: [],
     bootstrap: [AppComponent]
 })
