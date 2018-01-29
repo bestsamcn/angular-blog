@@ -1,9 +1,9 @@
 <div class="moveup home-category">
-    <slot name="title"></slot>
+    <ng-content select="title"></ng-content>
     <div class="cont">
-        <a href="javascript:;" @click="cateClick(item._id.name)" ngFor="let item of categoryArticleGroup">
-            <span class="name">{{item._id && item._id.name}}</span>
-            <span class="number">({{item.total || 0}})</span>
+        <a href="javascript:;"  ngFor="let item of [1,2,3,4]">
+            <span class="name">{{item}}</span>
+            <span class="number">({{item}})</span>
         </a>
     </div>
 </div>
