@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { CategoryComponent } from './category/category.component';
 import { LayoutModule } from '../layout/layout.module';
+import { RankComponent } from './rank/rank.component';
 
 @NgModule({
 	declarations:[
 		HomeComponent,
-		CategoryComponent
+		CategoryComponent,
+		RankComponent
 	],
 	imports: [
 		CommonModule,

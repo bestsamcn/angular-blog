@@ -1,9 +1,9 @@
 <div class="moveup home-category">
-    <ng-content select="title"></ng-content>
+    <ng-content></ng-content>
     <div class="cont">
-        <a href="javascript:;"  ngFor="let item of [1,2,3,4]">
-            <span class="name">{{item}}</span>
-            <span class="number">({{item}})</span>
+        <a href="javascript:;"  *ngFor="let item of categoryArticleGroup">
+            <span class="name">{{item._id.name}}</span>
+            <span class="number">({{item.total}})</span>
         </a>
     </div>
 </div>
