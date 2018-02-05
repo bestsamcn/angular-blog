@@ -4,12 +4,14 @@ import { HomeComponent } from './home.component';
 import { CategoryComponent } from './category/category.component';
 import { LayoutModule } from '../layout/layout.module';
 import { RankComponent } from './rank/rank.component';
+import { TagComponent } from './tag/tag.component';
 
 @NgModule({
 	declarations:[
 		HomeComponent,
 		CategoryComponent,
-		RankComponent
+		RankComponent,
+		TagComponent
 	],
 	imports: [
 		CommonModule,
@@ -18,7 +20,6 @@ import { RankComponent } from './rank/rank.component';
 	exports:[
 		HomeComponent,
 		CategoryComponent,
-	],
-	declarations: [HomeComponent, CategoryComponent]
+	]
 })
 export class HomeModule {}
