@@ -20,6 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+        "assets/libs/animate.css",
+        "assets/libs/Font-Awesome-3.2.1/css/font-awesome.min.css",
         "assets/css/base.css"
       ],
       "scripts": [],

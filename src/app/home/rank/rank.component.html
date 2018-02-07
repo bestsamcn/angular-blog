@@ -1,12 +1,12 @@
 <div class="moveup article-rank margin-top-30">
     <div class="tab-list">
-        <a href="javascript:;" class="active">最火</a>
-        <a href="javascript:;">最新</a>
-        <a href="javascript:;">评论</a>
-        <a href="javascript:;">阅读</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==1 }" class="active" (click)="onTabChange(1)">最火</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==2 }" (click)="onTabChange(2)">最新</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==3 }" (click)="onTabChange(3)">评论</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==4 }" (click)="onTabChange(4)">阅读</a>
     </div>
     <div class="tab-cont">
-        <div class="popular" *ngIf="activeIndex===1">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutRight':activeIndex!=1}">
             <a>
                 <div class="img">
                     <div class="img-box">
@@ -19,11 +19,11 @@
                 </div>
             </a>
         </div>
-        <div class="popular" *ngIf="activeIndex===2">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutRight':activeIndex!=2}" >
             <a>
                 <div class="img">
                     <div class="img-box">
-                        <span>标题</span>
+                        <span>标题2</span>
                     </div>
                 </div>
                 <div class="text">
@@ -32,7 +32,7 @@
                 </div>
             </a>
         </div>
-        <div class="popular" *ngIf="activeIndex===3">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==3, 'bounceOutRight':activeIndex!=3}">
             <a>
                 <div class="img">
                     <div class="img-box name">
@@ -45,11 +45,11 @@
                 </div>
             </a>
         </div>
-        <div class="popular" *ngIf="activeIndex===4">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==4, 'bounceOutRight':activeIndex!=4}">
             <a>
                 <div class="img">
                     <div class="img-box">
-                        <span >标题</span>
+                        <span >标题3</span>
                     </div>
                 </div>
                 <div class="text">

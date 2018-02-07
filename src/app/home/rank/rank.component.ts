@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class RankComponent implements OnInit {
 	activeIndex = 3;
 	constructor() {}
-
+	onTabChange: void(n:number)=>{
+		this.activeIndex = n;
+	}
 	ngOnInit() {}
 
 }
