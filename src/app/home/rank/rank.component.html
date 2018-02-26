@@ -6,7 +6,7 @@
         <a href="javascript:;" [ngClass]="{'active':activeIndex==4 }" (click)="onTabChange(4)">阅读</a>
     </div>
     <div class="tab-cont">
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutRight':activeIndex!=1}">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutLeft':activeIndex!=1}">
             <a>
                 <div class="img">
                     <div class="img-box">
@@ -19,7 +19,7 @@
                 </div>
             </a>
         </div>
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutRight':activeIndex!=2}" >
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}" >
             <a>
                 <div class="img">
                     <div class="img-box">
@@ -32,7 +32,7 @@
                 </div>
             </a>
         </div>
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==3, 'bounceOutRight':activeIndex!=3}">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==3, 'bounceOutLeft':activeIndex!=3}">
             <a>
                 <div class="img">
                     <div class="img-box name">
@@ -45,7 +45,7 @@
                 </div>
             </a>
         </div>
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==4, 'bounceOutRight':activeIndex!=4}">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==4, 'bounceOutLeft':activeIndex!=4}">
             <a>
                 <div class="img">
                     <div class="img-box">
