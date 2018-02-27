@@ -9,6 +9,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeModule } from './home/home.module';
 import { HomeComponent } from './home/home.component';
 
+//services
+import { GlobalService } from './app.service';
 
 import { ROUTES } from './config/config.routes';
 
@@ -25,7 +27,7 @@ import { ROUTES } from './config/config.routes';
         HomeModule
     ],
     
-    providers: [],
+    providers: [GlobalService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
