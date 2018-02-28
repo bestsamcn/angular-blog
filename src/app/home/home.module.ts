@@ -6,6 +6,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { RankComponent } from './rank/rank.component';
 import { TagComponent } from './tag/tag.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticleModule } from '../article/article.module';
 
 @NgModule({
 	declarations:[
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 	imports: [
 		CommonModule,
 		LayoutModule,
+		ArticleModule,
 		HttpClientModule
 	],
 	exports:[

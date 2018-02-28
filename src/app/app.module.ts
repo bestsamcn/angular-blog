@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { GlobalService } from './app.service';
 
 import { ROUTES } from './config/config.routes';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { ROUTES } from './config/config.routes';
         RouterModule.forRoot(ROUTES),
         //引入布局模块，方便app.component.ts使用
         LayoutModule,
-        HomeModule
+        HomeModule,
+        ArticleModule
     ],
     
     providers: [GlobalService],
