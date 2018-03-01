@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
+import { IndexPipe } from '../pipes/index.pipe';
+
 @NgModule({
 	imports: [
 		CommonModule
@@ -9,7 +11,8 @@ import { ListComponent } from './list/list.component';
 		ListComponent
 	],
 	declarations: [
-		ListComponent
+		ListComponent,
+		IndexPipe
 	]
 })
 export class ArticleModule {}

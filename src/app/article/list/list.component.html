@@ -15,7 +15,7 @@
             </p>
             <div class="bottom">
                 <a href="javascript:;" class="more">{{item.category ? item.category.name :'我可能被删了'}}</a>
-                <a class="icon-calendar more no-border color-gray">{{item.createTime}}</a>
+                <a class="icon-calendar more no-border color-gray">{{ item.createTime | dateFormat:'yyyy-MM-dd'}}</a>
                 <a class="icon-edit more no-border color-gray"   *ngIf="!!item.lastEditTime">{{item.lastEditTime}}</a>
             </div>
         </div>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="padding-20-0">
-         <a *ngIf="(isShowMore && isMore)" href="javascript:;" class="more-btn">More</a>
+        <a *ngIf="(isShowMore && isMore)" href="javascript:;" class="more-btn">More</a>
         <p class="text-center color-gray padding-20-0" *ngIf="(isShowMore && !isMore)">没有更多了</p>
     </div>
 </div>

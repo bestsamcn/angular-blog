@@ -5,6 +5,9 @@ export class GlobalService{
 	token = '';
 	info = {};
 	constructor(){
+		return {
+			token, info
+		}
 	}
 	getToken(token: string){
 		this.token = token;
