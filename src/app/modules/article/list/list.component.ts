@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { POSTER_URL } from '../../config/config.global';
+import { POSTER_URL } from '../../../config/config.global';
 
 @Component({
   selector: 'article-list',

@@ -1,29 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
-import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
-import { LayoutComponent } from './layout/layout.component';
-import { HomeModule } from './home/home.module';
-import { HomeComponent } from './home/home.component';
 
 //services
-import { GlobalService } from './app.service';
+import { GlobalService } from './services/global.service';
 
+//route
 import { ROUTES } from './config/config.routes';
-import { ArticleModule } from './article/article.module';
 
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AjaxInterceptor } from './interceptor/index';
-// import { IndexPipe } from './pipes/index.pipe';
+//interceptor
+import { AjaxInterceptor } from './interceptor';
+
+//modules
+import { ArticleModule } from './modules/article/article.module';
+import { LayoutModule } from './modules/layout/layout.module';
+import { HomeModule } from './modules/home/home.module';
+
+//components
+import { AppComponent } from './app.component';
+import { LayoutComponent } from './modules/layout/layout.component';
+import { HomeComponent } from './modules/home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LayoutComponent,
-        // IndexPipe
     ],
     imports: [
         BrowserModule,
@@ -40,7 +43,7 @@ import { AjaxInterceptor } from './interceptor/index';
         useClass: AjaxInterceptor,
         multi: true,
     }],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
-import { IndexPipe } from '../pipes/index.pipe';
+import { DateFormatPipe, DateDescPipe, TransNumPipe } from '../../pipes/index.pipe';
 
 @NgModule({
 	imports: [
@@ -12,7 +12,9 @@ import { IndexPipe } from '../pipes/index.pipe';
 	],
 	declarations: [
 		ListComponent,
-		IndexPipe
+		DateFormatPipe,
+		DateDescPipe,
+		TransNumPipe
 	]
 })
 export class ArticleModule {}

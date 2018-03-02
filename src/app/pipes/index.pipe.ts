@@ -1,9 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+
+/**
+ * dateFormat 时间格式化
+ * @date {Number} 时间戳 
+ * @format {String} 时间戳 
+ * @return {String} 格式化的时间 
+ */
 @Pipe({
 	name: 'dateFormat'
 })
-export class IndexPipe implements PipeTransform {
+export class DateFormatPipe implements PipeTransform {
 	transform(date: string, format: string): string {
 		if (!arguments[0]) {
             return '暂无'
@@ -32,5 +39,87 @@ export class IndexPipe implements PipeTransform {
             return all;
         });
         return format;
+	}
+}
+
+
+/**
+ * dateDesc 时间倒读
+ * @param  {number} oldDate 时间戳
+ * @return {string} 倒读
+ */
+@Pipe({
+	name: 'dateDesc'
+})
+export class DateDescPipe implements PipeTransform {
+	transform(oldDate: string): string {
+		let now=new Date().getTime(),
+            past =  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime(),
+            diffValue = now - past,
+            res='',
+            s = 1000,
+            m = 1000 * 60,
+            h = m * 60,
+            d = h * 24,
+            hm = d * 15,
+            mm = d * 30,
+            y = mm * 12,
+            _y = diffValue/y,
+            _mm =diffValue/mm,
+            _w =diffValue/(7*d),
+            _d =diffValue/d,
+            _h =diffValue/h,
+            _m =diffValue/m,
+            _s = diffValue/s;
+        if(_y>=1) res=parseInt(_y) + '年前';
+        else if(_mm>=1) res=parseInt(_mm) + '个月前';
+        else if(_w>=1) res=parseInt(_w) + '周前';
+        else if(_d>=1) res=parseInt(_d) +'天前';
+        else if(_h>=1) res=parseInt(_h) +'小时前';
+        else if(_m>=1) res=parseInt(_m) +'分钟前';
+        else if(_s>=1) res=parseInt(_s) +'秒前';
+        else res='刚刚';
+        return res;
+	}
+}
+
+/**
+ * textEllipsis 字符串缩略
+ * @str { string } 需要缩略的字符串
+ * @len { number } 限定的字数
+ * @isPoint { boolean } 只显示指定字数，isPoint为真时，剩余以。。。代替,否则直接截取。
+ * @return { string } 返回字符串 
+ */
+@Pipe({
+	name: 'textEllipsis'
+})
+export class TextEllipsisPipe implements PipeTransform {
+	transform(str: string, len: number, isPoint: boolean): string {
+		isPoint = isPoint || false;
+        if(!str) return;
+        if(str.length <= len) return str;
+        return (isPoint ? str.substring(0, len)+'...' : str.substring(0, len));
+	}
+}
+
+/**
+ * transNum
+ * @num { number } 需要转化的数字
+ * @return {number|string} 返回 
+ */
+@Pipe({
+	name: 'transNum'
+})
+export class TransNumPipe implements PipeTransform {
+	transform(num: number | string): string | number {
+		if(!num) return 0;
+        if (num >= 10000) {
+            num = Math.round(num / 10000 * 100) / 100 +' W';
+        } else if(num>= 1000) {
+            num = Math.round(num / 1000 * 100) / 100 +' K';
+        } else {
+            num = num;
+        }
+        return num;
 	}
 }

@@ -6,7 +6,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
 import { BackTopComponent } from './back-top/back-top.component';
-import { BackTopDirective } from './back-top/back-top.directive';
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { BackTopDirective } from './back-top/back-top.directive';
         ToastComponent,
         LoadingComponent,
         BackTopComponent,
-        BackTopDirective
     ],
     imports: [
     	CommonModule
@@ -26,8 +24,7 @@ import { BackTopDirective } from './back-top/back-top.directive';
         FooterComponent,
         ToastComponent,
         LoadingComponent,
-        BackTopComponent,
-        BackTopDirective
+        BackTopComponent
     ],
     providers: []
 })

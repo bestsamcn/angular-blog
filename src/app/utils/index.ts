@@ -70,7 +70,7 @@ Tool.getStyle = function(element, attr) {
  * @param  {obj}   json 运动参数
  * @param  {function} fn   回调
  */
-Tool.moveStart = function(obj, json, fn) {
+Tool.moveStart = function(obj: object, json: object, fn: any): void {
     var that = this;
     clearInterval(obj.timer);
     obj.timer = setInterval(function() {
