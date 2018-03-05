@@ -7,7 +7,7 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
 	styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit {
-	@Input() isVisible: boolean = false;
+	@Input() isVisible: boolean;
 	constructor() {}
 
 	ngOnInit() {}

@@ -72,9 +72,9 @@ Tool.getStyle = function(element, attr) {
  */
 Tool.moveStart = function(obj: object, json: object, fn: any): void {
     var that = this;
-    obj.timer: any = null;
-    clearInterval(obj.timer);
-    obj.timer = setInterval(function() {
+    let timer: any;
+    clearInterval(timer);
+    timer = setInterval(function() {
         var bStop = true;
         var icur = 0;
         icur = parseInt(that.getStyle(obj, 'top'));
@@ -86,7 +86,7 @@ Tool.moveStart = function(obj: object, json: object, fn: any): void {
         }
         obj.style['top'] = icur + iSpeed + 'px';
         if (bStop) {
-            clearInterval(obj.timer);
+            clearInterval(timer);
             fn && fn();
         }
     }, 30);
