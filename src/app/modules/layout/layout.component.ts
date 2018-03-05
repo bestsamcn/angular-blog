@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../../services/global.service';
+
 
 
 @Component({
@@ -8,9 +8,7 @@ import { GlobalService } from '../../services/global.service';
 	styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
-	public isLoading: boolean = false;
-	constructor(public globalService: GlobalService) {
+	constructor() {
 	}
-
 	ngOnInit() {}
 }

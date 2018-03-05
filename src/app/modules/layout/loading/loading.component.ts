@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
+import { GlobalService } from '../../../services/global.service';
 
 @Component({
 	selector: 'app-loading',
@@ -7,9 +8,9 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
 	styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit {
-	@Input() isVisible: boolean;
-	constructor() {}
-
+	public isLoading: boolean = false;
+	constructor(public globalService: GlobalService) {
+		//globalService需按引用传递
+	}
 	ngOnInit() {}
-
 }

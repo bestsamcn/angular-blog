@@ -19,7 +19,6 @@ export class AjaxInterceptor implements HttpInterceptor {
 			if(event instanceof HttpResponse){
 				//拦截请求后：响应成功//成功loading结束
 				this.globalService.setLoadingState(false);
-				console.log(event, 'asdfasdfa')
 			}
 		},(err: any)=>{ 
 			if(err instanceof HttpErrorResponse){
