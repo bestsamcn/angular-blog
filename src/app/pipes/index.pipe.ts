@@ -11,7 +11,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 	name: 'dateFormat'
 })
 export class DateFormatPipe implements PipeTransform {
-	transform(date: string, format: string): string {
+	transform(date: any, format: string): string {
 		if (!arguments[0]) {
             return '暂无'
         }
@@ -52,26 +52,26 @@ export class DateFormatPipe implements PipeTransform {
 	name: 'dateDesc'
 })
 export class DateDescPipe implements PipeTransform {
-	transform(oldDate: string): string {
-		let now=new Date().getTime(),
-            past =  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime(),
-            diffValue = now - past,
-            res='',
-            s = 1000,
-            m = 1000 * 60,
-            h = m * 60,
-            d = h * 24,
-            hm = d * 15,
-            mm = d * 30,
-            y = mm * 12,
-            _y = diffValue/y,
-            _mm =diffValue/mm,
-            _w =diffValue/(7*d),
-            _d =diffValue/d,
-            _h =diffValue/h,
-            _m =diffValue/m,
-            _s = diffValue/s;
-        if(_y>=1) res=parseInt(_y) + '年前';
+	transform(oldDate: any) {
+		let now: number=new Date().getTime(),
+            past: number=  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime(),
+            diffValue: number = now - past,
+            res: string ='',
+            s: number = 1000,
+            m: number = 1000 * 60,
+            h: number = m * 60,
+            d: number = h * 24,
+            hm: number = d * 15,
+            mm: number = d * 30,
+            y: number = mm * 12,
+            _y: number = diffValue/y,
+            _mm: number =diffValue/mm,
+            _w: number =diffValue/(7*d),
+            _d: number =diffValue/d,
+            _h: number =diffValue/h,
+            _m: number =diffValue/m,
+            _s: number = diffValue/s;
+        if(_y>=1) res=`${parseInt(_y)}年前`;
         else if(_mm>=1) res=parseInt(_mm) + '个月前';
         else if(_w>=1) res=parseInt(_w) + '周前';
         else if(_d>=1) res=parseInt(_d) +'天前';

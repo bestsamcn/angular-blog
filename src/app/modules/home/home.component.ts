@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 		this.HttpClient = HttpClient;
 	}
 	ngOnInit() {
-		this.HttpClient.request('GET','http://api.bestsamcn.me/api/article/getList').subscribe(res=>{
+		this.HttpClient.request('GET','http://api.bestsamcn.me/api/article/getList').subscribe((res: any)=>{
 			this.articleList = res.data;
 		})
 	}

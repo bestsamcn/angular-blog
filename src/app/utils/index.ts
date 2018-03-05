@@ -2,19 +2,19 @@
  * 工具库
  */
 
-let Tool = {};
+let Tool: any = {};
 
 Tool.isMobile = function() {
         var b = false;
         var sUserAgent = navigator.userAgent.toLowerCase();
-        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
-        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
-        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
-        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
-        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
-        var bIsAndroid = sUserAgent.match(/android/i) == "android";
-        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
-        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        var bIsIpad = sUserAgent.match(/ipad/i).toString() == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i).toString()  == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i).toString()  == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i).toString()  == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i).toString()  == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i).toString()  == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i).toString()  == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i).toString()  == "windows mobile";
         if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
             b = true;
         }
@@ -52,7 +52,7 @@ Tool.getCookie = function(k) {
  * @param {string} k 键名
  */
 Tool.clearCookie = function(k) {
-        window.setCookie(k, '', -1);
+        Tool.setCookie(k, '', -1);
     }
     /**
      * 获取css样式值
@@ -72,6 +72,7 @@ Tool.getStyle = function(element, attr) {
  */
 Tool.moveStart = function(obj: object, json: object, fn: any): void {
     var that = this;
+    obj.timer: any = null;
     clearInterval(obj.timer);
     obj.timer = setInterval(function() {
         var bStop = true;

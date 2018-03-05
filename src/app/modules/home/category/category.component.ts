@@ -8,10 +8,10 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 	encapsulation:ViewEncapsulation.None
 })
 export class CategoryComponent implements OnInit {
-	categoryArticleGroup:Array<Object>
+	public categoryArticleGroup: Array<any> = [];
 	constructor(private httpClient:HttpClient) {}
 	ngOnInit() {
-		this.httpClient.get('http://api.bestsamcn.me/api/article/getDiffArticle?type=1').subscribe(data => {
+		this.httpClient.get('http://api.bestsamcn.me/api/article/getDiffArticle?type=1').subscribe((data: any) => {
 			console.log(data)
 			this.categoryArticleGroup = data.data;
 	    });
