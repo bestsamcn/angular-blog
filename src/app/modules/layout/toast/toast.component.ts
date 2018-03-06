@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GlobalService } from '../../../services/global.service';
 
 @Component({
 	selector: 'app-toast',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 	styleUrls: ['./toast.component.css']
 })
 export class ToastComponent implements OnInit {
-	@Input() msg: string;
-	constructor() {}
+	constructor(public globalService: GlobalService) {
+	}
 	ngOnInit() {}
 }

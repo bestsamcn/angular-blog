@@ -12,20 +12,32 @@ export class AjaxInterceptor implements HttpInterceptor {
 		this.globalService = globalService;
 	}
 	intercept(req: HttpRequest < any > , next: HttpHandler): Observable < HttpEvent < any >> {
-		const authReq = req.clone({headers: req.headers.set('token', 'asdfasdf')});
+		const authReq = req.clone({headers: req.headers.set('token', this.globalService.token)});
 		this.globalService.setLoadingState(true);
 		return next.handle(authReq)
-		.do((event: HttpEvent<any>)=> { 
-			if(event instanceof HttpResponse){
-				//拦截请求后：响应成功//成功loading结束
-				this.globalService.setLoadingState(false);
+		.mergeMap((event: HttpEvent<any>)=> { 
+			if(event instanceof HttpResponse &&  (event.status !== 200 && event.status !== 304 && event.body.retCode !== 0)){
+				this.globalService.setToastMessage(event.body.message || '出错了');
+				return Observable.create(observer => observer.error(event));
 			}
-		},(err: any)=>{ 
-			if(err instanceof HttpErrorResponse){
-				///拦截请求后：错误处理//err loading结束
-				this.globalService.setLoadingState(false);
-				return Observable.throw(err);
-			}
+			this.globalService.setLoadingState(false);
+			return Observable.create(observer => observer.next(event));
 		})
+		.catch((res: HttpResponse<any>) => {
+            switch (res.status) {
+                case 401:
+                    // 权限处理
+                    break;
+                case 200:
+                    // 业务层级错误处理
+                    this.notifySrv.error('业务错误', `错误代码为：${res.body.code}`);
+                    break;
+                case 404:
+                    this.notifySrv.error('404', `API不存在`);
+                    break;
+            }
+            // 以错误的形式结束本次请求
+            return Observable.throw(res);
+        })
 	}
 }

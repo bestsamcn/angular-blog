@@ -37,7 +37,6 @@ export class SidebarScrollDirective {
 				if (aniDistant > h) {
 					aniDistant = h
 				};
-				console.log($$.moveStart)
 				if (_body.scrollTop > slideBarIntOffsetTop ) {
 					$$.moveStart(el, {'top':aniDistant});
 				} else {

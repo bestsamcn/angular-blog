@@ -8,7 +8,6 @@ import { GlobalService } from '../../../services/global.service';
 	styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit {
-	public isLoading: boolean = false;
 	constructor(public globalService: GlobalService) {
 		//globalService需按引用传递
 	}
