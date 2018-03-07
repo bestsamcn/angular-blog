@@ -7,7 +7,7 @@ Angular-Blog 是一个基于``Angular+express``的前后端分离的响应式web
 ## 环境
 - node v6
 - npm  v4
-- angular  v4.0
+- angular  v5.0
 
 ## 开发
 ```
