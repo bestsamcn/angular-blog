@@ -9,5 +9,7 @@ import { GlobalService } from '../../../services/global.service';
 export class ToastComponent implements OnInit {
 	constructor(public globalService: GlobalService) {
 	}
-	ngOnInit() {}
+	ngOnInit() {
+		console.log(this.globalService)
+	}
 }

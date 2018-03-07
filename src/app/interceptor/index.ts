@@ -8,8 +8,7 @@ import { GlobalService } from '../services/global.service';
 
 @Injectable()
 export class AjaxInterceptor implements HttpInterceptor {
-	constructor(globalService: GlobalService){
-		this.globalService = globalService;
+	constructor(public globalService: GlobalService){
 	}
 	intercept(req: HttpRequest < any > , next: HttpHandler): Observable < HttpEvent < any >> {
 		const authReq = req.clone({headers: req.headers.set('token', this.globalService.token)});

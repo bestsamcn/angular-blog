@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //services
 import { GlobalService } from './services/global.service';
+import { Request } from './utils/request';
 
 //route
 import { ROUTES } from './config/config.routes';
@@ -38,11 +39,15 @@ import { HomeComponent } from './modules/home/home.component';
     ],
     exports:[
     ],
-    providers: [GlobalService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: AjaxInterceptor,
-        multi: true,
-    }],
+    providers: [
+        GlobalService, 
+        Request, 
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AjaxInterceptor,
+            multi: true,
+        }
+    ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     bootstrap: [AppComponent]
 })
