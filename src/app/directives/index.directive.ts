@@ -1,24 +1,23 @@
-import { Directive, ElementRef, Input, OnChange } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 import $$ from '../utils';
-
 
 /**
  * sidebarScroll 侧边栏滚动指令
  */
 @Directive({ selector: '[sidebarScroll]' })
-export class SidebarScrollDirective implements OnChange{
+export class SidebarScrollDirective implements OnChanges{
 	private $$: any = $$;
+	//检测父级容器变化，以便触发ngOnChanges钩子
+	@Input() sidebarScroll:number;
     constructor(public el: ElementRef){
     	this.scroll(el.nativeElement);
     }
-    ngOnChange(){
-    	console.log(111)
+    ngOnChanges(){
     	this.scroll(this.el.nativeElement);
     }
     scroll(el){
 		let _body = document.body;
 		let _pNode = el.parentNode;
-		// return
 		el.slideBar = ()=>{
 			//滚动的极限距离
 			let h: number = parseInt(_pNode.offsetHeight) - parseInt(el.offsetHeight)-20;
@@ -71,3 +70,35 @@ export class BackTopDirective {
 		}, 500)
 	}
 }
+
+/**
+ * autoSize 图片自适应
+ */
+@Directive({
+	selector:'[autoSize]'
+})
+export class AutoSizeDirective implements OnChanges {
+	@Input() autoSize:string;
+	constructor(public el: ElementRef){
+	}
+	ngOnChanges(){
+		this.setResize(this.el.nativeElement)
+	}
+	setResize(el){
+		let img:Image = new Image();
+		img.src = this.autoSize;
+		img.onload = function(e:any){
+
+			let w:number = e.path[0].width;
+			let h:number = e.path[0].height;
+			if(w > h){
+				el.style.height = '100%';
+				el.style.width = 'initial';
+			}else{
+				el.style.height = 'initial';
+				el.style.width = '100%';
+			}
+		}
+	}
+}
+

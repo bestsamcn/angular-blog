@@ -10,7 +10,8 @@
             <a *ngFor="let item of hotList">
                 <div class="img">
                     <div class="img-box">
-                        <span>{{item.title | textEllipsis:2:true}}</span>
+                        <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
+                        <span *ngIf="!item.poster">{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">
@@ -23,7 +24,8 @@
             <a *ngFor="let item of homeService.articleList">
                 <div class="img">
                     <div class="img-box">
-                        <span>{{item.title | textEllipsis:2:true}}</span>
+                        <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
+                        <span *ngIf="!item.poster">{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">
@@ -49,7 +51,8 @@
             <a *ngFor="let item of readNumList">
                 <div class="img">
                     <div class="img-box">
-                        <span>{{item.title | textEllipsis:2:true}}</span>
+                        <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
+                        <span *ngIf="!item.poster">{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">

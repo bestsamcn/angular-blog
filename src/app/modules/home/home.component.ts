@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HomeService } from '@app/services/guest/home.service';
 import { PAGE_SIZE } from '@app/config/config.global';

@@ -11,7 +11,7 @@
                 </div>
             </div>
             <p class="preview">
-                摘要: {{item.previewText}}
+                摘要: {{item.previewText | textEllipsis:50:true}}
             </p>
             <div class="bottom">
                 <a href="javascript:;" class="more">{{item.category ? item.category.name :'我可能被删了'}}</a>
@@ -22,7 +22,7 @@
         <!-- <div class="right" *ngIf="!!item.poster && isMobile"> -->
         <div class="right" *ngIf="!!item.poster && !isMobile">
             <div class="img">
-                <img [src]="POSTER_URL+item.poster">
+                <img [autoSize]="POSTER_URL+item.poster" [src]="POSTER_URL+item.poster">
             </div>
         </div>
     </div>

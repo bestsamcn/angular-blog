@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '@app/services/guest/home.service';
+import { POSTER_URL } from '../../../config/config.global';
 
 @Component({
 	selector: 'home-rank',
@@ -11,6 +12,7 @@ export class RankComponent implements OnInit {
 	hotList = [];
 	commentList = [];
 	readNumList = [];
+	POSTER_URL = POSTER_URL;
 	constructor(public homeService: HomeService) {}
 	onTabChange(n:number): void{
 		this.activeIndex = n;

@@ -25,8 +25,7 @@ import { SidebarScrollDirective } from '../../directives/index.directive';
 		CategoryComponent,
 		RankComponent,
 		TagComponent,
-		SidebarScrollDirective,
-
+		SidebarScrollDirective
 	],
 	imports: [
 		CommonModule,
