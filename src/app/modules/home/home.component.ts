@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 	}
 	ngOnInit() {
 		console.log(this.request)
-		this.request.get({url:'http://api.bestsamcn.me/api/article/getList'}).then((res: any)=>{
+		this.request.get({url:'http://api.bestsamcn.me/api/article/getList', params:{pageIndex:1, pageSize:5}}).then((res: any)=>{
 			this.articleList = res;
 		})
 
