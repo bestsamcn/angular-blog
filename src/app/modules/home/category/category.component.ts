@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HomeService } from '@app/services/guest/home.service';
 
 @Component({
 	selector: 'home-category',
@@ -9,11 +9,10 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 })
 export class CategoryComponent implements OnInit {
 	public categoryArticleGroup: Array<any> = [];
-	constructor(private httpClient:HttpClient) {}
+	constructor(public homeService:HomeService) {}
 	ngOnInit() {
-		this.httpClient.get('http://api.bestsamcn.me/api/article/getDiffArticle?type=1').subscribe((data: any) => {
-			console.log(data)
-			this.categoryArticleGroup = data.data;
+		this.homeService.getCategoryList().then((res: any) => {
+			this.categoryArticleGroup = res.data;
 	    });
 	}
 

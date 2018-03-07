@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams, URLSearchParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { GlobalService } from '../services/global.service';
 import { Injectable } from '@angular/core';
+import { ROOT_API } from '@app/config/config.global';
 
 interface Config{
 	url:string,
@@ -14,18 +15,20 @@ export class Request {
 
 	}
 	get(config: Config){
+		this.globalService.setLoadingState(true);
 		return new Promise((resolve: any)=>{
-			this.httpClient.get(config.url, {params:config.params}).subscribe((res: any)=>{
+			this.httpClient.get(ROOT_API+config.url, {params:config.params}).subscribe((res: any)=>{
 				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
-				resolve(res.data);
+				resolve(res);
 			});
 		});
 	}
 	post(config: Config){
+		this.globalService.setLoadingState(true);
 		return new Promise((resolve: any)=>{
-			this.httpClient.post(config.url, config.params}).subscribe((res: any)=>{
+			this.httpClient.post(ROOT_API+config.url, config.params).subscribe((res: any)=>{
 				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
-				resolve(res.data);
+				resolve(res);
 			});
 		});
 	}

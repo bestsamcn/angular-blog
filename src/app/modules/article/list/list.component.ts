@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { POSTER_URL } from '../../../config/config.global';
 
 @Component({
@@ -8,8 +8,9 @@ import { POSTER_URL } from '../../../config/config.global';
 })
 export class ListComponent implements OnInit {
 	@Input() articleList:Array<Object>;
-	@Input() isMore?:boolean;
-	@Input() isShowMore?:boolean;
+	@Input() isMore?:boolean = false;
+	@Input() isShowMore?:boolean = true;
+	@Output() onMoreClick = new EventEmitter();
 	POSTER_URL = POSTER_URL;
 	constructor() {
 		

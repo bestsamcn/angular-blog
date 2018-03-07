@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="padding-20-0">
-        <a *ngIf="(isShowMore && isMore)" href="javascript:;" class="more-btn">More</a>
+        <a *ngIf="(isShowMore && isMore)" href="javascript:;" (click)="onMoreClick.emit()" class="more-btn">More</a>
         <p class="text-center color-gray padding-20-0" *ngIf="(isShowMore && !isMore)">没有更多了</p>
     </div>
 </div>

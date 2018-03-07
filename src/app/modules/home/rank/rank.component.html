@@ -7,54 +7,54 @@
     </div>
     <div class="tab-cont">
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutLeft':activeIndex!=1}">
-            <a>
+            <a *ngFor="let item of hotList">
                 <div class="img">
                     <div class="img-box">
-                        <span>标题</span>
+                        <span>{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">
-                    <h4>标题</h4>
-                    <p><i class="icon-calendar"></i>2018-2-2</p>
+                    <h4>{{item.title}}</h4>
+                    <p><i class="icon-calendar"></i>{{item.createTime | dateFormat:'yyyy-MM-dd'}}</p>
                 </div>
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}" >
-            <a>
+            <a *ngFor="let item of homeService.articleList">
                 <div class="img">
                     <div class="img-box">
-                        <span>标题2</span>
+                        <span>{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">
-                    <h4>挑剔</h4>
-                    <p><i class="icon-calendar"></i>2018-2-2</p>
+                    <h4>{{item.title}}</h4>
+                    <p><i class="icon-calendar"></i>{{item.createTime | dateFormat:'yyyy-MM-dd'}}</p>
                 </div>
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==3, 'bounceOutLeft':activeIndex!=3}">
-            <a>
+            <a *ngFor="let item of commentList">
                 <div class="img">
                     <div class="img-box name">
-                        <span>2010-2-2</span>
+                        <span>{{item.createLog.createName | textEllipsis:3:true}}</span>
                     </div>
                 </div>
                 <div class="text">
-                    <h4>RE:sam</h4>
-                    <p><i class="icon-calendar"></i>2018-2-2</p>
+                    <h4>RE:{{item.parentComent ? item.parentComment.content : item.article.title}}</h4>
+                    <p><i class="icon-calendar"></i>{{item.createTime | dateFormat:'yyyy-MM-dd'}}</p>
                 </div>
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==4, 'bounceOutLeft':activeIndex!=4}">
-            <a>
+            <a *ngFor="let item of readNumList">
                 <div class="img">
                     <div class="img-box">
-                        <span >标题3</span>
+                        <span>{{item.title | textEllipsis:2:true}}</span>
                     </div>
                 </div>
                 <div class="text">
-                    <h4>挑剔</h4>
-                    <p><i class="icon-calendar"></i>2018-2-2</p>
+                    <h4>{{item.title}}</h4>
+                    <p><i class="icon-calendar"></i>{{item.createTime | dateFormat:'yyyy-MM-dd'}}</p>
                 </div>
             </a>
         </div>

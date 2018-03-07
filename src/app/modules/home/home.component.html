@@ -2,7 +2,7 @@
     <div class="main">
         <div class="wrapper">
             <div class="left-cont">
-                <article-list [articleList]="articleList"></article-list>
+                <article-list [articleList]="articleList" [isMore]="isMore" (onMoreClick)="getArticleList()"></article-list>
             </div>
             <div class="right-bar sm-hide" sidebarScroll>
                 <home-category>

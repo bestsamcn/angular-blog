@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, OnChange } from '@angular/core';
 import $$ from '../utils';
 
 
@@ -6,10 +6,14 @@ import $$ from '../utils';
  * sidebarScroll 侧边栏滚动指令
  */
 @Directive({ selector: '[sidebarScroll]' })
-export class SidebarScrollDirective {
+export class SidebarScrollDirective implements OnChange{
 	private $$: any = $$;
-    constructor(el: ElementRef){
+    constructor(public el: ElementRef){
     	this.scroll(el.nativeElement);
+    }
+    ngOnChange(){
+    	console.log(111)
+    	this.scroll(this.el.nativeElement);
     }
     scroll(el){
 		let _body = document.body;

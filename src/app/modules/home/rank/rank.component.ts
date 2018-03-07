@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '@app/services/guest/home.service';
 
 @Component({
 	selector: 'home-rank',
@@ -6,11 +7,33 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./rank.component.css']
 })
 export class RankComponent implements OnInit {
-	activeIndex = 3;
-	constructor() {}
+	activeIndex = 1;
+	hotList = [];
+	commentList = [];
+	readNumList = [];
+	constructor(public homeService: HomeService) {}
 	onTabChange(n:number): void{
 		this.activeIndex = n;
 	}
-	ngOnInit() {}
+	getHotList(){
+        this.homeService.getHotList().then(res=>{
+            this.hotList = res.data;
+        });
+    }
+    getLatestComent(){
+    	this.homeService.getLatestComent().then(res=>{
+            this.commentList = res.data;
+        });
+    }
+    getReadNumAritlce(){
+    	this.homeService.getReadNumAritlce().then(res=>{
+            this.readNumList = res.data;
+        });
+    }
+	ngOnInit() {
+		this.getHotList();
+		this.getLatestComent();
+		this.getReadNumAritlce();
+	}
 
 }

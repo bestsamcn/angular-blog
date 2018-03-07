@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 //services
 import { GlobalService } from './services/global.service';
 import { Request } from './utils/request';
@@ -27,7 +26,7 @@ import { HomeComponent } from './modules/home/home.component';
 @NgModule({
     declarations: [
         AppComponent,
-        LayoutComponent,
+        LayoutComponent
     ],
     imports: [
         BrowserModule,
