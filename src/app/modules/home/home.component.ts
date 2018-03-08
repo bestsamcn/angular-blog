@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HomeService } from '@app/services/guest/home.service';
+import { GlobalService } from '@app/services/global.service';
 import { PAGE_SIZE } from '@app/config/config.global';
 
 @Component({
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 	pageIndex = 1;
 	articleList = [];
 	isMore = true
-	constructor(private HttpClient: HttpClient, public homeService: HomeService) {
+	constructor(private HttpClient: HttpClient, public homeService: HomeService, public globalService: GlobalService) {
 		this.HttpClient = HttpClient;
 	}
 	getArticleList(isRefresh?:boolean){

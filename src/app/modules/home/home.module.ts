@@ -7,17 +7,18 @@ import { RankComponent } from './rank/rank.component';
 import { TagComponent } from './tag/tag.component';
 import { HttpClientModule } from '@angular/common/http';
 
-//管道模块
+//pipes
 import { PipeModule } from '@app/pipes/pipe.module';
 
-//引入文章模块
+//modules
 import { ArticleModule } from '../article/article.module';
 
-//服务
+//services
 import { HomeService } from '@app/services/guest/home.service';
 
-
+//directives
 import { SidebarScrollDirective } from '../../directives/index.directive';
+import { HotComponent } from './hot/hot.component';
 
 @NgModule({
 	declarations:[
@@ -25,7 +26,8 @@ import { SidebarScrollDirective } from '../../directives/index.directive';
 		CategoryComponent,
 		RankComponent,
 		TagComponent,
-		SidebarScrollDirective
+		SidebarScrollDirective,
+		HotComponent
 	],
 	imports: [
 		CommonModule,

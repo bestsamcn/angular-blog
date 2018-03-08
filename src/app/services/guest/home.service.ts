@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Request } from '@app/utils/request';
 import { PAGE_SIZE } from '@app/config/config.global';
+import { GlobalService } from '@app/services/global.service';
 
 @Injectable()
 export class HomeService {
 	private pageSize = PAGE_SIZE;
 	//公用的文章列表，防止重复请求
 	public articleList = [];
-    constructor(public request: Request) { }
+    constructor(public request: Request, public globalService: GlobalService) {
+		this.getHotWordList();
+    }
 	
 	//公共文章列表
     setArticleList(list: any){
@@ -42,5 +45,12 @@ export class HomeService {
 	//获取阅读量倒序文章列表
 	getReadNumAritlce(){
 		return this.request.get({url:'/article/getList', params:{type:2, pageIndex:1, pageSize:4}});
+	}
+
+	//获取热词列表
+	getHotWordList(){
+		this.request.get({url:'/hot/getList', params:{type:2, pageIndex:1, pageSize:4}}).then((res: any)=>{
+			this.globalService.setHotWordList(res.data);
+		});
 	}
 }

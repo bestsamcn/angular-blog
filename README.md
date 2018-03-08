@@ -20,6 +20,9 @@ npm install
 ng serve
 
 ng build
+
+ng build --prod --build-optimizer --vendor-chunk --extract-css --named-chunks --aot  --output-hashing=all
+
 ```
 ## 图片
 ![piture](https://github.com/bestsamcn/vue-blog/blob/master/picture/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png)
@@ -29,6 +32,7 @@ ng build
 - [请点击我](http://react.bestsamcn.me/)预览react版本
 - [请点击我](http://blog.bestsamcn.me/)预览vue版本
 - [请点击我](http://gulp.bestsamcn.me/)预览gulp自动化版本
+
 
 
 

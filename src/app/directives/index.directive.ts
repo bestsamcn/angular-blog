@@ -57,16 +57,46 @@ export class SidebarScrollDirective implements OnChanges{
 
 
 /**
+ * bakcTop 是否显示返回顶部
+ */
+@Directive({
+	selector:'[shouldShowTop]'
+})
+export class ShouldShowTopDirective implements OnChanges {
+	//检测父级容器变化，以便触发ngOnChanges钩子
+	@Input() shouldShowTop:number;
+	@Input() distance:number;
+	constructor(public elementRef: ElementRef){
+		this.showTop(elementRef.nativeElement)
+	}
+	ngOnChanges(){
+    	this.showTop(this.elementRef.nativeElement);
+    }
+	showTop(el){
+		let nScrollTop:number, nClientHeight: number = document.documentElement.clientHeight || document.body.clientHeight;
+		let elClass: string=el.class;
+		console.log('asdfasdf')
+        el.temp = ()=>{
+        	nScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	        if (nScrollTop > this.distance) {
+	        	el.className="go-top-btn show";
+	        } else {
+	        	el.className="go-top-btn"
+	        }
+        }
+	}
+}
+
+/**
  * bakcTop 返回顶部指令
  */
 @Directive({
-	selector:'[backTop]'
+	selector:'[backtop]'
 })
-export class BackTopDirective {
+export class BacktopDirective {
 	constructor(elementRef: ElementRef){
-		let that: any = this
 		setTimeout(()=>{
-			$$.toScrollHeight(0, that.elementRef.nativeElement);
+			$$.toScrollHeight(0, elementRef.nativeElement);
 		}, 500)
 	}
 }

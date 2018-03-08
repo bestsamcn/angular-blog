@@ -7,6 +7,11 @@ import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
 import { BacktopComponent } from './backtop/backtop.component';
 
+//directives
+import { BacktopDirective, ShouldShowTopDirective } from '../../directives/index.directive';
+
+//services
+import { HomeService } from '@app/services/guest/home.service';
 
 @NgModule({
     declarations: [
@@ -14,7 +19,9 @@ import { BacktopComponent } from './backtop/backtop.component';
         FooterComponent,
         ToastComponent,
         LoadingComponent,
-        BacktopComponent
+        BacktopComponent,
+        BacktopDirective,
+        ShouldShowTopDirective
     ],
     imports: [
     	CommonModule
@@ -26,6 +33,6 @@ import { BacktopComponent } from './backtop/backtop.component';
         LoadingComponent,
         BacktopComponent
     ],
-    providers: []
+    providers: [HomeService]
 })
 export class LayoutModule {}

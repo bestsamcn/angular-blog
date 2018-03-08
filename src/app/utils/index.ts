@@ -7,14 +7,14 @@ let Tool: any = {};
 Tool.isMobile = function() {
         var b = false;
         var sUserAgent = navigator.userAgent.toLowerCase();
-        var bIsIpad = sUserAgent.match(/ipad/i).toString() == "ipad";
-        var bIsIphoneOs = sUserAgent.match(/iphone os/i).toString()  == "iphone os";
-        var bIsMidp = sUserAgent.match(/midp/i).toString()  == "midp";
-        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i).toString()  == "rv:1.2.3.4";
-        var bIsUc = sUserAgent.match(/ucweb/i).toString()  == "ucweb";
-        var bIsAndroid = sUserAgent.match(/android/i).toString()  == "android";
-        var bIsCE = sUserAgent.match(/windows ce/i).toString()  == "windows ce";
-        var bIsWM = sUserAgent.match(/windows mobile/i).toString()  == "windows mobile";
+        var bIsIpad = String(sUserAgent.match(/ipad/i)) == "ipad";
+        var bIsIphoneOs = String(sUserAgent.match(/iphone os/i)) == "iphone os";
+        var bIsMidp = String(sUserAgent.match(/midp/i))  == "midp";
+        var bIsUc7 = String(sUserAgent.match(/rv:1.2.3.4/i)) == "rv:1.2.3.4";
+        var bIsUc = String(sUserAgent.match(/ucweb/i)) == "ucweb";
+        var bIsAndroid = String(sUserAgent.match(/android/i)) == "android";
+        var bIsCE = String(sUserAgent.match(/windows ce/i)) == "windows ce";
+        var bIsWM = String(sUserAgent.match(/windows mobile/i)) == "windows mobile";
         if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
             b = true;
         }

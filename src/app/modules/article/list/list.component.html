@@ -1,5 +1,5 @@
 <div class="article-list" >
-    <div class="item" [ngClass]="{'has-right':!!item.poster && !isMobile}" *ngFor="let item of articleList">
+    <div class="item" [ngClass]="{'has-right':!!item.poster && !globalService.isMobile}" *ngFor="let item of articleList">
         <div class="left">
             <div class="title">
                 <h4 class="color-black">{{item.title}}</h4>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <!-- <div class="right" *ngIf="!!item.poster && isMobile"> -->
-        <div class="right" *ngIf="!!item.poster && !isMobile">
+        <div class="right" *ngIf="!!item.poster && !globalService.isMobile">
             <div class="img">
                 <img [autoSize]="POSTER_URL+item.poster" [src]="POSTER_URL+item.poster">
             </div>

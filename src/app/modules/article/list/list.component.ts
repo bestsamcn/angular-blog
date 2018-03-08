@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { POSTER_URL } from '../../../config/config.global';
+import { GlobalService } from '@app/services/global.service';
 
 @Component({
   selector: 'article-list',
@@ -12,7 +13,7 @@ export class ListComponent implements OnInit {
 	@Input() isShowMore?:boolean = true;
 	@Output() onMoreClick = new EventEmitter();
 	POSTER_URL = POSTER_URL;
-	constructor() {
+	constructor(public globalService: GlobalService) {
 		
 	}
 

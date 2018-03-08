@@ -1,5 +1,6 @@
 <div class="home router-view">
     <div class="main">
+        <home-hot *ngIf="globalService.isMobile"></home-hot>
         <div class="wrapper">
             <div class="left-cont">
                 <article-list [articleList]="articleList" [isMore]="isMore" (onMoreClick)="getArticleList()"></article-list>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
+import { ArticleComponent } from './article.component';
 import { PipeModule } from '@app/pipes/pipe.module';
-import { AutoSizeDirective } from '../../directives/index.directive';
+import { AutoSizeDirective } from '@app/directives/index.directive';
 
 @NgModule({
 	imports: [
@@ -13,6 +14,7 @@ import { AutoSizeDirective } from '../../directives/index.directive';
 		ListComponent
 	],
 	declarations: [
+		ArticleComponent,
 		ListComponent,
 		AutoSizeDirective
 	]

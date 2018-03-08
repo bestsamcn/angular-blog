@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '@app/services/guest/home.service';
 
 @Component({
   selector: 'app-backtop',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BacktopComponent implements OnInit {
 
-  constructor() { }
+  constructor(public homeService: HomeService) { }
 
   ngOnInit() {
   }
