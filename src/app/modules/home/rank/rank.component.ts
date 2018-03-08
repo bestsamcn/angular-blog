@@ -18,17 +18,17 @@ export class RankComponent implements OnInit {
 		this.activeIndex = n;
 	}
 	getHotList(){
-        this.homeService.getHotList().then(res=>{
+        this.homeService.getHotList().then((res: any)=>{
             this.hotList = res.data;
         });
     }
     getLatestComent(){
-    	this.homeService.getLatestComent().then(res=>{
+    	this.homeService.getLatestComent().then((res: any)=>{
             this.commentList = res.data;
         });
     }
     getReadNumAritlce(){
-    	this.homeService.getReadNumAritlce().then(res=>{
+    	this.homeService.getReadNumAritlce().then((res: any)=>{
             this.readNumList = res.data;
         });
     }

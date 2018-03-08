@@ -11,7 +11,7 @@ export class TagComponent implements OnInit {
 	tagArticleGroup = [];
 	constructor(public homeService: HomeService) {}
 	ngOnInit() {
-		this.homeService.getTagList().then(res=>{
+		this.homeService.getTagList().then((res: any)=>{
 			this.tagArticleGroup = res.data;
 		});
 	}
