@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToastComponent } from './toast/toast.component';
 import { LoadingComponent } from './loading/loading.component';
-import { BackTopComponent } from './back-top/back-top.component';
+import { BacktopComponent } from './backtop/backtop.component';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { BackTopComponent } from './back-top/back-top.component';
         FooterComponent,
         ToastComponent,
         LoadingComponent,
-        BackTopComponent,
+        BacktopComponent
     ],
     imports: [
     	CommonModule
@@ -24,7 +24,7 @@ import { BackTopComponent } from './back-top/back-top.component';
         FooterComponent,
         ToastComponent,
         LoadingComponent,
-        BackTopComponent
+        BacktopComponent
     ],
     providers: []
 })

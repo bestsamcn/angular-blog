@@ -52,33 +52,33 @@ export class DateFormatPipe implements PipeTransform {
 	name: 'dateDesc'
 })
 export class DateDescPipe implements PipeTransform {
-	transform(oldDate: any) {
-		let now: number=new Date().getTime(),
-            past: number=  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime(),
-            diffValue: number = now - past,
-            res: string ='',
-            s: number = 1000,
-            m: number = 1000 * 60,
-            h: number = m * 60,
-            d: number = h * 24,
-            hm: number = d * 15,
-            mm: number = d * 30,
-            y: number = mm * 12,
-            _y: number = diffValue/y,
-            _mm: number =diffValue/mm,
-            _w: number =diffValue/(7*d),
-            _d: number =diffValue/d,
-            _h: number =diffValue/h,
-            _m: number =diffValue/m,
-            _s: number = diffValue/s;
-        if(_y>=1) res=`${parseInt(_y)}年前`;
-        else if(_mm>=1) res=parseInt(_mm) + '个月前';
-        else if(_w>=1) res=parseInt(_w) + '周前';
-        else if(_d>=1) res=parseInt(_d) +'天前';
-        else if(_h>=1) res=parseInt(_h) +'小时前';
-        else if(_m>=1) res=parseInt(_m) +'分钟前';
-        else if(_s>=1) res=parseInt(_s) +'秒前';
-        else res='刚刚';
+	transform(oldDate: number) {
+		let now: number=new Date().getTime();
+        let past: number=  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime();
+        let diffValue= now - past;
+        let res ='';
+        let s = 1000;
+        let m = 1000 * 60;
+        let h= m * 60;
+        let d= h * 24;
+        let hm= d * 15;
+        let mm= d * 30;
+        let y= mm * 12;
+        let _y= diffValue/y;
+        let _mm=diffValue/mm;
+        let _w=diffValue/(7*d);
+        let _d=diffValue/d;
+        let _h=diffValue/h;
+        let _m=diffValue/m;
+        let _s= diffValue/s;
+        if(_y>=1) {res = parseInt(_y)+'年前';}
+        else if(_mm>=1) {res = parseInt(_mm) + '个月前';}
+        else if(_w>=1) {res = parseInt(_w) + '周前';}
+        else if(_d>=1) {res = parseInt(_d) +'天前';}
+        else if(_h>=1) {res = parseInt(_h) +'小时前';}
+        else if(_m>=1) {res = parseInt(_m) +'分钟前';}
+        else if(_s>=1) {res = parseInt(_s) +'秒前';}
+        res = '刚刚'
         return res;
 	}
 }
@@ -111,14 +111,12 @@ export class TextEllipsisPipe implements PipeTransform {
 	name: 'transNum'
 })
 export class TransNumPipe implements PipeTransform {
-	transform(num: number | string): string | number {
+	transform(num:number){
 		if(!num) return 0;
         if (num >= 10000) {
-            num = Math.round(num / 10000 * 100) / 100 +' W';
+            return Math.round(num / 10000 * 100) / 100 +' W';
         } else if(num>= 1000) {
-            num = Math.round(num / 1000 * 100) / 100 +' K';
-        } else {
-            num = num;
+            return Math.round(num / 1000 * 100) / 100 +' K';
         }
         return num;
 	}

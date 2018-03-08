@@ -18,6 +18,7 @@ export class Request {
 		this.globalService.setLoadingState(true);
 		return new Promise((resolve: any)=>{
 			this.httpClient.get(ROOT_API+config.url, {params:config.params}).subscribe((res: any)=>{
+				this.globalService.setLoadingState(false);
 				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
 				resolve(res);
 			});
@@ -27,6 +28,7 @@ export class Request {
 		this.globalService.setLoadingState(true);
 		return new Promise((resolve: any)=>{
 			this.httpClient.post(ROOT_API+config.url, config.params).subscribe((res: any)=>{
+				this.globalService.setLoadingState(false);
 				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
 				resolve(res);
 			});

@@ -85,7 +85,7 @@ export class AutoSizeDirective implements OnChanges {
 		this.setResize(this.el.nativeElement)
 	}
 	setResize(el){
-		let img:Image = new Image();
+		let img:any = new Image();
 		img.src = this.autoSize;
 		img.onload = function(e:any){
 

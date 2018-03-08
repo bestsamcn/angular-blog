@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
 	constructor(private HttpClient: HttpClient, public homeService: HomeService) {
 		this.HttpClient = HttpClient;
 	}
-	getArticleList(isRefresh?: false){
-		this.homeService.getArticleList(this.pageIndex).then(res=>{
+	getArticleList(isRefresh?:boolean){
+		this.homeService.getArticleList(this.pageIndex).then((res: any)=>{
 			this.pageIndex++;
 			isRefresh ? (this.articleList = res.data ) : (this.articleList = this.articleList.concat(res.data));
 			if(res.total > this.pageIndex* PAGE_SIZE){

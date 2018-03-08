@@ -60,8 +60,8 @@ Tool.clearCookie = function(k) {
      * @param  {string} attr    属性名
      * @return {string}
      */
-Tool.getStyle = function(element, attr) {
-    return getComputedStyle(element, false)[attr];
+Tool.getStyle = function(element: any, attr: string) {
+    return window.getComputedStyle(element, null)[attr];
 }
 
 /**
@@ -71,7 +71,7 @@ Tool.getStyle = function(element, attr) {
  * @param  {function} fn   回调
  */
 let timer: any;
-Tool.moveStart = function(obj: object, json: object, fn: any): void {
+Tool.moveStart = function(obj: any, json: object, fn: any): void {
     var that = this;
     clearInterval(timer);
     timer = setInterval(function() {
@@ -188,7 +188,7 @@ Tool.Clock = (function() {
             hours = (hours > 12) ? hours -= 12 : hours;
             hours = (hours == 0) ? 12 : hours;
         } else {
-            hours = pad(hours);
+            hours = parseInt(pad(hours));
         }
 
         var minutes = pad(date.getMinutes());
@@ -327,7 +327,7 @@ Tool.Clock = (function() {
                     if (newSize > p.origSize && newSize > 0) {
                         p.size = newSize;
                     } else {
-                        p.size = m.origSize;
+                        p.size = p.origSize;
                     }
                 }
             } catch (e) {
@@ -662,7 +662,7 @@ Tool.toScrollHeight = function(iTarget,obj){
         }
         b = 2;
     });
-    function runFn(iTarget,iCur) {
+    function runFn(iTarget: number, iCur?: number) {
         clearInterval(iTimer);
         var iSpeed = 0,iCur = 0;
         iTimer = setInterval(function() {
