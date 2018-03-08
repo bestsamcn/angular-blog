@@ -56,7 +56,7 @@ export class DateDescPipe implements PipeTransform {
 		let now: number=new Date().getTime();
         let past: number=  !isNaN(oldDate) ? oldDate : new Date(oldDate).getTime();
         let diffValue= now - past;
-        let res ='';
+        let res: number | string;
         let s = 1000;
         let m = 1000 * 60;
         let h= m * 60;
@@ -64,21 +64,21 @@ export class DateDescPipe implements PipeTransform {
         let hm= d * 15;
         let mm= d * 30;
         let y= mm * 12;
-        let _y= diffValue/y;
-        let _mm=diffValue/mm;
-        let _w=diffValue/(7*d);
-        let _d=diffValue/d;
-        let _h=diffValue/h;
-        let _m=diffValue/m;
-        let _s= diffValue/s;
-        if(_y>=1) {res = parseInt(_y)+'年前';}
-        else if(_mm>=1) {res = parseInt(_mm) + '个月前';}
-        else if(_w>=1) {res = parseInt(_w) + '周前';}
-        else if(_d>=1) {res = parseInt(_d) +'天前';}
-        else if(_h>=1) {res = parseInt(_h) +'小时前';}
-        else if(_m>=1) {res = parseInt(_m) +'分钟前';}
-        else if(_s>=1) {res = parseInt(_s) +'秒前';}
-        res = '刚刚'
+        let _y: number= diffValue/y;
+        let _mm: number=diffValue/mm;
+        let _w: number=diffValue/(7*d);
+        let _d: number=diffValue/d;
+        let _h: number=diffValue/h;
+        let _m: number=diffValue/m;
+        let _s: number= diffValue/s;
+        if(_y>=1) {res = Math.floor(_y)+'年前';}
+        else if(_mm>=1) {res = Math.floor(_mm) + '个月前';}
+        else if(_w>=1) {res = Math.floor(_w) + '周前';}
+        else if(_d>=1) {res = Math.floor(_d) +'天前';}
+        else if(_h>=1) {res = Math.floor(_h) +'小时前';}
+        else if(_m>=1) {res = Math.floor(_m) +'分钟前';}
+        else if(_s>=1) {res = Math.floor(_s) +'秒前';}
+        res = '刚刚';
         return res;
 	}
 }
