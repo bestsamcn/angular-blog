@@ -64,8 +64,8 @@ export class SidebarScrollDirective implements OnChanges{
 })
 export class ShouldShowTopDirective implements OnChanges {
 	//检测父级容器变化，以便触发ngOnChanges钩子
-	@Input() shouldShowTop:number;
-	@Input() distance:number;
+	@Input() shouldShowTop: number;
+	@Input() distance: number;
 	constructor(public elementRef: ElementRef){
 		this.showTop(elementRef.nativeElement)
 	}
@@ -75,7 +75,6 @@ export class ShouldShowTopDirective implements OnChanges {
 	showTop(el){
 		let nScrollTop:number, nClientHeight: number = document.documentElement.clientHeight || document.body.clientHeight;
 		let elClass: string=el.class;
-		console.log('asdfasdf')
         el.temp = ()=>{
         	nScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	        if (nScrollTop > this.distance) {
@@ -84,6 +83,8 @@ export class ShouldShowTopDirective implements OnChanges {
 	        	el.className="go-top-btn"
 	        }
         }
+        el.temp();
+        window.addEventListener('scroll',el.temp);
 	}
 }
 
