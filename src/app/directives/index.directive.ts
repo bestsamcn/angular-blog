@@ -9,6 +9,7 @@ export class SidebarScrollDirective implements OnChanges, OnDestroy{
 	private $$: any = $$;
 	//检测父级容器变化，以便触发ngOnChanges钩子
 	@Input() sidebarScroll:number;
+	slideFunc: any;
     constructor(public el: ElementRef){
     	this.scroll(el.nativeElement);
     }
@@ -66,20 +67,24 @@ export class SidebarScrollDirective implements OnChanges, OnDestroy{
 @Directive({
 	selector:'[shouldShowTop]'
 })
-export class ShouldShowTopDirective implements OnChanges {
+export class ShouldShowTopDirective implements OnChanges, OnDestroy {
 	//检测父级容器变化，以便触发ngOnChanges钩子
 	@Input() shouldShowTop: number;
 	@Input() distance: number;
+	temp: any;
 	constructor(public elementRef: ElementRef){
 		this.showTop(elementRef.nativeElement)
 	}
 	ngOnChanges(){
     	this.showTop(this.elementRef.nativeElement);
     }
+    ngOnDestroy(){
+		window.removeEventListener('scroll',this.temp);
+    }
 	showTop(el){
 		let nScrollTop:number, nClientHeight: number = document.documentElement.clientHeight || document.body.clientHeight;
 		let elClass: string=el.class;
-        el.temp = ()=>{
+        this.temp = ()=>{
         	nScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	        if (nScrollTop > this.distance) {
 	        	el.className="go-top-btn show";
@@ -87,8 +92,8 @@ export class ShouldShowTopDirective implements OnChanges {
 	        	el.className="go-top-btn"
 	        }
         }
-        el.temp();
-        window.addEventListener('scroll',el.temp);
+        this.temp();
+        window.addEventListener('scroll',this.temp);
 	}
 }
 

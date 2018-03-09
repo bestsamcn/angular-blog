@@ -37,7 +37,7 @@ export class GlobalService {
   	}
 
   	//设置气泡提示
-  	setToastMessage(msg: string){
+  	setToast(msg: string){
   		this.toastTimer && clearTimeout(this.toastTimer);
   		this.toastMessage = msg;
   		this.toastTimer = setTimeout(()=>{

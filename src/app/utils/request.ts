@@ -19,7 +19,7 @@ export class Request {
 		return new Promise((resolve: any)=>{
 			this.httpClient.get(ROOT_API+config.url, {params:config.params}).subscribe((res: any)=>{
 				this.globalService.setLoadingState(false);
-				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
+				config.isToast && this.globalService.setToast(res.message || '请求成功');
 				resolve(res);
 			});
 		});
@@ -29,7 +29,7 @@ export class Request {
 		return new Promise((resolve: any)=>{
 			this.httpClient.post(ROOT_API+config.url, config.params).subscribe((res: any)=>{
 				this.globalService.setLoadingState(false);
-				config.isToast && this.globalService.setToastMessage(res.message || '请求成功');
+				config.isToast && this.globalService.setToast(res.message || '请求成功');
 				resolve(res);
 			});
 		});

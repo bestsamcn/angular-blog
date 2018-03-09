@@ -8,8 +8,8 @@
                 <span class="icon-map-marker">{{article.category && article.category.name}}</span>
                 <span class="icon-eye-open">{{article.readNum | transNum}} Views</span>
                 <span class="icon-tag">{{article.tag && article.tag.name}}</span>
-                <span class="icon-edit" *ngIf="!!article.lastEditTime && !isMobile">{{article.lastEditTime | dateFormat:'yyyy-MM-dd hh:mm:ss'}}</span>
-                <a href="javascript:;" class="icon-heart" [ngClass]="{'active':isLiked}">{{article.likeNum | transNum}}</a>
+                <span class="icon-edit" *ngIf="!!article.lastEditTime && !globalService.isMobile">{{article.lastEditTime | dateFormat:'yyyy-MM-dd hh:mm:ss'}}</span>
+                <a href="javascript:;" class="icon-heart" (click)="setArticleLike()" [ngClass]="{'active':isLiked}">{{article.likeNum | transNum}}</a>
             </div>
         </div>
         <div class="img">
@@ -18,13 +18,14 @@
         <p class="preview">
             {{article.previewText}}
         </p>
-        <div class="content markdown-body" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(article.content)"></div>
+        <div class="content markdown-body" [innerHTML]="article.content"></div>
         <div class="others">
             <a href="javascript:;" (click)="goBack()">返回</a>
             <a *ngIf="prevID" [routerLink]="['/article/detail', prevID]">前篇</a>
             <a *ngIf="nextID" [routerLink]="['/article/detail', nextID]">后篇</a>
-            <a href="javascript:;" [ngClass]="{'is-liked':isLiked}">点赞</a>
+            <a href="javascript:;" [ngClass]="{'is-liked':isLiked}" (click)="setArticleLike()">点赞</a>
         </div>
+        <article-comment [article]="id"></article-comment>
     </div>
     <app-footer class="margin-top-20"></app-footer>
 </div>

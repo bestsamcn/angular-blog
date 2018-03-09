@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 //modules
@@ -19,24 +20,27 @@ import { AutoSizeDirective } from '@app/directives/index.directive';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 import { ArticleComponent } from './article.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		PipeModule,
 		LayoutModule,
-		RouterModule
+		RouterModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	exports: [
 		ListComponent,
-		ArticleComponent,
-		DetailComponent
+		ArticleComponent
 	],
 	declarations: [
 		ArticleComponent,
 		ListComponent,
 		AutoSizeDirective,
-		DetailComponent
+		DetailComponent,
+		CommentComponent
 	],
 	providers:[ArticleService]
 })
