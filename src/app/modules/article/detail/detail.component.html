@@ -1,0 +1,30 @@
+<div class="article-detail router-view">
+    <app-backtop></app-backtop>
+    <div class="main">
+        <div class="title">
+            <h4 class="color-black">{{ article.title }}</h4>
+            <div class="info margin-top-10">
+                <span class="icon-calendar">{{article.createTime | dateFormat:'yyyy-MM-dd'}}</span>
+                <span class="icon-map-marker">{{article.category && article.category.name}}</span>
+                <span class="icon-eye-open">{{article.readNum | transNum}} Views</span>
+                <span class="icon-tag">{{article.tag && article.tag.name}}</span>
+                <span class="icon-edit" *ngIf="!!article.lastEditTime && !isMobile">{{article.lastEditTime | dateFormat:'yyyy-MM-dd hh:mm:ss'}}</span>
+                <a href="javascript:;" class="icon-heart" [ngClass]="{'active':isLiked}">{{article.likeNum | transNum}}</a>
+            </div>
+        </div>
+        <div class="img">
+            <img *ngIf="false" src="../../assets/img/article-1.jpg">
+        </div>
+        <p class="preview">
+            {{article.previewText}}
+        </p>
+        <div class="content markdown-body" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(article.content)"></div>
+        <div class="others">
+            <a href="javascript:;" (click)="goBack()">返回</a>
+            <a *ngIf="prevID" [routerLink]="['/article/detail', prevID]">前篇</a>
+            <a *ngIf="nextID" [routerLink]="['/article/detail', nextID]">后篇</a>
+            <a href="javascript:;" [ngClass]="{'is-liked':isLiked}">点赞</a>
+        </div>
+    </div>
+    <app-footer class="margin-top-20"></app-footer>
+</div>

@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit, OnDestroy } from '@angular/core';
 import $$ from '../utils';
 
 /**
  * sidebarScroll 侧边栏滚动指令
  */
 @Directive({ selector: '[sidebarScroll]' })
-export class SidebarScrollDirective implements OnChanges{
+export class SidebarScrollDirective implements OnChanges, OnDestroy{
 	private $$: any = $$;
 	//检测父级容器变化，以便触发ngOnChanges钩子
 	@Input() sidebarScroll:number;
@@ -14,6 +14,10 @@ export class SidebarScrollDirective implements OnChanges{
     }
     ngOnChanges(){
     	this.scroll(this.el.nativeElement);
+    }
+    ngOnDestroy(){
+		window.removeEventListener('scroll', this.slideFunc);
+		document.removeEventListener('resize', this.slideFunc);
     }
     scroll(el){
 		let _body = document.body;
@@ -25,7 +29,7 @@ export class SidebarScrollDirective implements OnChanges{
 			let mainHeight = parseInt(_pNode.offsetHeight);
 			let slideBarHeight =  parseInt(el.offsetHeight) - 40 ;
 			let slideBarIntOffsetTop = 20;
-			let slideFunc = function() {
+			this.slideFunc = function() {
 				let	scrollTop: number = _body.scrollTop;
 	            let slideBarOffsetTop: number = el.offsetTop;
 	            let slideBarTop  = parseInt(el.style.top) || 0;
@@ -46,8 +50,8 @@ export class SidebarScrollDirective implements OnChanges{
 					$$.moveStart(el, {'top':10});
 				}
 			}
-			window.addEventListener('scroll', slideFunc);
-			document.addEventListener('resize', slideFunc);
+			window.addEventListener('scroll', this.slideFunc);
+			document.addEventListener('resize', this.slideFunc);
 		}
 		setTimeout(()=>{
 			el.slideBar()
@@ -75,7 +79,6 @@ export class ShouldShowTopDirective implements OnChanges {
 	showTop(el){
 		let nScrollTop:number, nClientHeight: number = document.documentElement.clientHeight || document.body.clientHeight;
 		let elClass: string=el.class;
-		console.log('asdfasdf')
         el.temp = ()=>{
         	nScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	        if (nScrollTop > this.distance) {

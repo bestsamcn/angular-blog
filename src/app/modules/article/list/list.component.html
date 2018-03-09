@@ -1,5 +1,5 @@
 <div class="article-list" >
-    <div class="item" [ngClass]="{'has-right':!!item.poster && !globalService.isMobile}" *ngFor="let item of articleList">
+    <div class="item" (click)="navigate(item._id)" [ngClass]="{'has-right':!!item.poster && !globalService.isMobile}" *ngFor="let item of articleList">
         <div class="left">
             <div class="title">
                 <h4 class="color-black">{{item.title}}</h4>

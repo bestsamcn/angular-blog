@@ -22,7 +22,9 @@
         "styles.css",
         "assets/libs/animate.css",
         "assets/libs/Font-Awesome-3.2.1/css/font-awesome.min.css",
-        "assets/css/base.css"
+        "assets/css/base.css",
+        "assets/css/atom-one-dark.css",
+        "assets/css/github-markdown.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

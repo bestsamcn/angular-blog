@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { POSTER_URL } from '../../../config/config.global';
 import { GlobalService } from '@app/services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'article-list',
@@ -13,10 +14,14 @@ export class ListComponent implements OnInit {
 	@Input() isShowMore?:boolean = true;
 	@Output() onMoreClick = new EventEmitter();
 	POSTER_URL = POSTER_URL;
-	constructor(public globalService: GlobalService) {
+	constructor(public globalService: GlobalService, private router: Router) {
 		
 	}
-
+	
+	//路由跳转
+	navigate(id){
+		this.router.navigate([`/article/detail/${id}`])
+	}
 	ngOnInit() {
 	}
 
