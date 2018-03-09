@@ -14,7 +14,7 @@ export class HomeService {
 	
 	//公共文章列表
     setArticleList(list: any){
-		this.articleList = list;
+		this.articleList = this.articleList.concat(list);
     }
 
     //获取文章列表

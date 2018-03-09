@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}" >
-            <a *ngFor="let item of homeService.articleList">
+            <a *ngFor="let item of homeService.articleList.slice(0, 4)">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">

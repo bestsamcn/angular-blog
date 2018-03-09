@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 				this.isMore = false;
 			}
 			//保存公共的文章列表
-			isRefresh && this.homeService.setArticleList(res.data);
+			this.homeService.setArticleList(res.data);
 		});
 	}
 	ngOnInit() {
