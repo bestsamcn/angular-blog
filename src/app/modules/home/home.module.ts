@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 //pipes
 import { PipeModule } from '@app/pipes/pipe.module';
@@ -37,7 +38,8 @@ import { TagComponent } from './tag/tag.component';
 		//引入
 		ArticleModule,
 		HttpClientModule,
-		PipeModule
+		PipeModule,
+		RouterModule
 	],
 	exports:[
 		HomeComponent,

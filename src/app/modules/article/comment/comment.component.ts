@@ -56,7 +56,8 @@ export class CommentComponent implements OnInit {
     }
 
     //添加评论
-    async addComment(){
+    async addComment($event){
+        if($event.keyCode !== 13) return;
     	if(!this.name){
             this.globalService.setToast('请先填写用户名');
             return;
@@ -137,7 +138,8 @@ export class CommentComponent implements OnInit {
     }
 
 	//回车事件大于等于3次就删除回复对象
-    backSpace(){
+    backSpace($event){
+        if($event.keyCode !== 8) return;
         if(this.content.replace(/^\s+|\s+$/,'').length == 0){
             this.backSpaceTimes++;
         }else{

@@ -7,7 +7,7 @@
     </div>
     <div class="tab-cont">
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutLeft':activeIndex!=1}">
-            <a *ngFor="let item of hotList">
+            <a *ngFor="let item of hotList" [routerLink]="['/article/detail/'+item._id]">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}" >
-            <a *ngFor="let item of homeService.articleList.slice(0, 4)">
+            <a *ngFor="let item of homeService.articleList.slice(0, 4)" [routerLink]="['/article/detail/'+item._id]">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==3, 'bounceOutLeft':activeIndex!=3}">
-            <a *ngFor="let item of commentList">
+            <a *ngFor="let item of commentList" [routerLink]="['/article/detail/'+item.article._id]">
                 <div class="img">
                     <div class="img-box name">
                         <span>{{item.createLog.createName | textEllipsis:3:true}}</span>
@@ -48,7 +48,7 @@
             </a>
         </div>
         <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==4, 'bounceOutLeft':activeIndex!=4}">
-            <a *ngFor="let item of readNumList">
+            <a *ngFor="let item of readNumList" [routerLink]="['/article/detail/'+item._id]">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">

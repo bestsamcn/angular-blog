@@ -9,7 +9,7 @@
             </li>
             <li style="position:relative">
                 <span *ngIf="!!reply" id="reply-name">@{{reply.createLog.createName+': '}}</span>
-                <textarea (mouseup)="getTextFocus($event)" (mousedown)="getTextFocus($event)" (keyup)="getTextFocus($event)" (keydown)="getTextFocus($event)" (focus)="getTextFocus($event)" (blur)="getTextFocus($event)" [placeholder]="replyOffsetWidth ? '' : '回复内容'" id="message-content" [ngStyle]="{textIndent:replyOffsetWidth+'px'}" [(ngModel)]="content" cols="30" rows="10">
+                <textarea (mouseup)="getTextFocus($event)" (mousedown)="getTextFocus($event)" (keyup)="getTextFocus($event); backSpace($event)" (keydown)="getTextFocus($event); addComment($event)" (focus)="getTextFocus($event)" (blur)="getTextFocus($event)" [placeholder]="replyOffsetWidth ? '' : '回复内容'" id="message-content" [ngStyle]="{textIndent:replyOffsetWidth+'px'}" [(ngModel)]="content" cols="30" rows="10">
                 </textarea>
             </li>
             <li class="others-bar">
@@ -17,8 +17,9 @@
                     <input type="checkbox" [(ngModel)]="isSaveInfo">
                     <span class="icon-check-empty">记住评论信息</span>
                 </label>
-                <a href="javascript:;" class="face icon-github-alt">表情</a>
+                <a href="javascript:;" class="face icon-github-alt" (click)="showFace()">表情</a>
                 <button class="sub-btn" (click)="addComment()">提交</button>
+                <article-emoji (onFaceClick)="onFaceClick($event)" [ngClass]="{'bounceInRight':shouldShowFace, 'bounceOutLeft':!shouldShowFace}" *ngIf="shouldShowFace"></article-emoji>
             </li>
         </ul>
 
@@ -46,5 +47,5 @@
         </div>
     </div>
     <p class="text-center margin-top-10 color-gray" *ngIf="!isMore">没有更多了...</p>
-    <a href="javascript:;" *ngIf="isMore"  class="more-btn md-hide">More</a>
+    <a href="javascript:;" *ngIf="isMore" (click)="getList(false)"  class="more-btn md-hide">More</a>
 </div>

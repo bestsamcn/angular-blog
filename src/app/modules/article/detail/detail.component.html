@@ -8,7 +8,7 @@
                 <span class="icon-map-marker">{{article.category && article.category.name}}</span>
                 <span class="icon-eye-open">{{article.readNum | transNum}} Views</span>
                 <span class="icon-tag">{{article.tag && article.tag.name}}</span>
-                <span class="icon-edit" *ngIf="!!article.lastEditTime && !globalService.isMobile">{{article.lastEditTime | dateFormat:'yyyy-MM-dd hh:mm:ss'}}</span>
+                <span class="icon-edit" *ngIf="article.lastEditTime && !globalService.isMobile">{{article.lastEditTime | dateFormat:'yyyy-MM-dd hh:mm:ss'}}</span>
                 <a href="javascript:;" class="icon-heart" (click)="setArticleLike()" [ngClass]="{'active':isLiked}">{{article.likeNum | transNum}}</a>
             </div>
         </div>

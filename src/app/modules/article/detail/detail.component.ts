@@ -13,7 +13,7 @@ import { ArticleModel } from '@app/models/article.model';
 	styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-	article: ArticleModel;
+	article: any = {};
 	prevID:string;
 	nextID:string;
 	isLiked:boolean;

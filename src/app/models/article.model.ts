@@ -1,4 +1,4 @@
-export class ArticleModel {
+export interface ArticleModel {
 	creator: string;
 	createTime: number;
 	lastEditTime :number;
@@ -8,12 +8,9 @@ export class ArticleModel {
 	tag: any;
 	readNum: number;
 	commentNum:number;
-	thumnail: string;
-	poster: string;
-	content:{
-		type:String;
-		require:true
-	};
+	thumnail?: string;
+	poster?: string;
+	content:string;
 	codeContent: string;
 	previewText: string;
 	likeNum: number;

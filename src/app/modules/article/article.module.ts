@@ -21,6 +21,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 import { ArticleComponent } from './article.component';
 import { CommentComponent } from './comment/comment.component';
+import { EmojiComponent } from './emoji/emoji.component';
 
 @NgModule({
 	imports: [
@@ -40,7 +41,8 @@ import { CommentComponent } from './comment/comment.component';
 		ListComponent,
 		AutoSizeDirective,
 		DetailComponent,
-		CommentComponent
+		CommentComponent,
+		EmojiComponent
 	],
 	providers:[ArticleService]
 })
