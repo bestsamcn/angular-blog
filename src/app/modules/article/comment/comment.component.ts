@@ -56,7 +56,7 @@ export class CommentComponent implements OnInit {
     }
 
     //添加评论
-    async addComment($event){
+    async addComment($event?){
         if($event.keyCode !== 13) return;
     	if(!this.name){
             this.globalService.setToast('请先填写用户名');
