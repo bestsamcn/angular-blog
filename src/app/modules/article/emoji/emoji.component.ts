@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FACE_URL } from '@app/config/config.global';
 
 @Component({
@@ -10,6 +10,7 @@ export class EmojiComponent implements OnInit {
 	emojiList=[];
 	FACE_URL=FACE_URL;
 	@Output() onFaceClick = new EventEmitter();
+	@Input() shouldShowFace =false;
    	constructor() { }
     init(){
 		for(var i=1; i<=48; i++){

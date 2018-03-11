@@ -1,4 +1,4 @@
-<div class="emoji">
+<div class="emoji animated"  [ngClass]="{'bounceInLeft':shouldShowFace, 'bounceOutLeft':!shouldShowFace}">
 	<a class="javascript:;" (click)="selectFace(item)" *ngFor="let item of emojiList">
 		<img [src]="FACE_URL+item+'.png'">
 	</a>

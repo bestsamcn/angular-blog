@@ -10,6 +10,7 @@ export class GlobalService {
 	public isLoading: boolean = false;
 	public toastMessage: string = '';
     public hotWordList = [];
+    public isMenuVisible = false
   	constructor() {
 		this.getLocalToken();
         this.getDeviceType();
@@ -48,5 +49,10 @@ export class GlobalService {
     //获取热词列表
     setHotWordList(hotWordList: Array<any>){
         this.hotWordList = hotWordList; 
+    }
+
+    //设置手机菜单显示隐藏
+    setMenuVisible(){
+        this.isMenuVisible = !this.isMenuVisible;
     }
 }

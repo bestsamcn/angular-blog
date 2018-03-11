@@ -13,6 +13,7 @@ import { BacktopDirective, ShouldShowTopDirective } from '../../directives/index
 
 //services
 import { HomeService } from '@app/services/guest/home.service';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { HomeService } from '@app/services/guest/home.service';
         LoadingComponent,
         BacktopComponent,
         BacktopDirective,
-        ShouldShowTopDirective
+        ShouldShowTopDirective,
+        MenuComponent
     ],
     imports: [
     	CommonModule,
@@ -33,7 +35,8 @@ import { HomeService } from '@app/services/guest/home.service';
         FooterComponent,
         ToastComponent,
         LoadingComponent,
-        BacktopComponent
+        BacktopComponent,
+        MenuComponent
     ],
     providers: [HomeService]
 })

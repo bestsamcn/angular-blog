@@ -8,6 +8,6 @@
         <!-- <a :to="{name:'AdminSignin'}" :class="{'active':routerName==='AdminSignin'}">{{isLogin ? '管理' : '登录'}}</a> -->
     </div>
     <div class="menu-btn md-hide">
-        <a href="javascript:;" class="icon-reorder"></a>
+        <a href="javascript:;" class="icon-reorder" [class.on]="globalService.isMenuVisible" (click)="globalService.setMenuVisible()"></a>
     </div>
 </div>

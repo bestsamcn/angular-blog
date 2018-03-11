@@ -19,7 +19,7 @@
                 </label>
                 <a href="javascript:;" class="face icon-github-alt" (click)="showFace()">表情</a>
                 <button class="sub-btn" (click)="addComment()">提交</button>
-                <article-emoji (onFaceClick)="onFaceClick($event)" [ngClass]="{'bounceInRight':shouldShowFace, 'bounceOutLeft':!shouldShowFace}" *ngIf="shouldShowFace"></article-emoji>
+                <article-emoji (onFaceClick)="onFaceClick($event)" [shouldShowFace]="shouldShowFace" ></article-emoji>
             </li>
         </ul>
 

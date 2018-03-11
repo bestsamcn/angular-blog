@@ -1,0 +1,8 @@
+<div class="menu animated" [ngClass]="{'bounceInLeft': globalService.isMenuVisible, 'bounceOutLeft': !globalService.isMenuVisible}">
+    <a class="icon-bold" (click)="goAndHideMenu('/')" [ngClass]="{'active':router.url==='/'}">首页</a>
+    <a class="icon-search" href="http://blog.bestsamcn.me/search">搜索</a>
+    <!-- <a class="icon-paste" (click)="goAndHideMenu('Article')" [ngClass]="{'active':routerName === 'Article' || routerName === 'ArticleDetail' }">文章</a> -->
+    <!-- <a class="icon-th-list" (click)="goAndHideMenu('Category')" [ngClass]="{'active':routerName==='Category'}">分类</a> -->
+    <a class="icon-leaf"  href="http://blog.bestsamcn.me/about">关于</a>
+    <a class="icon-comment"  href="http://blog.bestsamcn.me/message">留言</a>
+</div>
