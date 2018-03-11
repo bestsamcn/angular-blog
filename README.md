@@ -17,11 +17,9 @@ cd angular-blog
 
 npm install
 
-ng serve
+npm start
 
-ng build
-
-ng build --prod --build-optimizer --vendor-chunk --extract-css --named-chunks --aot  --output-hashing=all
+npm run build
 
 ```
 ## 图片

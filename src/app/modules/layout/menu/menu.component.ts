@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   	styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  	constructor(private globalService: GlobalService, private router: Router) { }
+  	constructor(public globalService: GlobalService, public router: Router) { }
   	goAndHideMenu(routerName: string){
 	    this.globalService.setMenuVisible();
 	    this.router.navigate([routerName]);
-	}
+	  }
 
   	ngOnInit() {
   	}
