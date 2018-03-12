@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   constructor(public globalService: GlobalService, public router: Router) { }
 
   ngOnInit() {
-  	console.log(this.router)
   }
 
 }
