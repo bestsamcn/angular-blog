@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //services
 import { GlobalService } from './services/global.service';
@@ -22,11 +23,13 @@ import { HomeModule } from './modules/home/home.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './modules/layout/layout.component';
 import { HomeComponent } from './modules/home/home.component';
+import { ErrorModule } from './modules/error/error.module';
 
 @NgModule({
     declarations: [
         AppComponent,
         LayoutComponent
+        
     ],
     imports: [
         BrowserModule,
@@ -34,7 +37,9 @@ import { HomeComponent } from './modules/home/home.component';
         //引入布局模块，方便app.component.ts使用
         LayoutModule,
         HomeModule,
-        ArticleModule
+        ArticleModule,
+        BrowserAnimationsModule,
+        ErrorModule
     ],
     exports:[
     ],

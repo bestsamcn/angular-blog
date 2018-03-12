@@ -4,6 +4,7 @@ import { GlobalService } from '@app/services/global.service';
 import { FACE_URL } from '@app/config/config.global';
 import $$ from '@app/utils';
 
+
 @Component({
 	selector: 'article-comment',
 	templateUrl: './comment.component.html',

@@ -1,0 +1,36 @@
+.middle-box {
+    max-width: 400px;
+    z-index: 100;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+.font-bold {
+    font-weight: 600;
+}
+.middle-box h1 {
+    font-size: 170px;
+    color:#666;
+}
+.middle-box a{
+	width:120px;
+	height:40px;
+	display: block;
+	font-size: 14px;
+	background: #1abc9c;
+	color:#fff;
+	margin:10px auto;
+	border-radius: 3px;
+	line-height: 40px;
+}
+.middle-box .error-desc{
+	margin:3px auto;
+}
+h3,
+h4,
+h5 {
+    margin-top: 5px;
+    font-weight: 100;
+}
+h3 {
+    font-size: 16px;
+}
