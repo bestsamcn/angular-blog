@@ -1,6 +1,6 @@
 # Angular-Blog
 
-Angular-Blog 是一个基于``Angular+express``的前后端分离的响应式web项目，另有[React版本](https://github.com/bestsamcn/react-blog)和[Vue版本](https://github.com/bestsamcn/react-blog)。
+Angular-Blog 是一个基于``Angular5+express``的前后端分离的响应式web项目，另有[React版本](https://github.com/bestsamcn/react-blog)和[Vue版本](https://github.com/bestsamcn/react-blog)。
 - 前端使用了Angular5完成
 - 后端接口利用 ``express + mongodb + redis`` 开发，后端地址[请点我](https://github.com/bestsamcn/node-blog)
 
