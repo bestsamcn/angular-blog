@@ -12,6 +12,7 @@ export class RankComponent implements OnInit {
 	hotList = [];
 	commentList = [];
 	readNumList = [];
+	latestList = [];
 	POSTER_URL = POSTER_URL;
 	constructor(public homeService: HomeService) {}
 	onTabChange(n:number): void{
@@ -32,10 +33,16 @@ export class RankComponent implements OnInit {
             this.readNumList = res.data;
         });
     }
+    getLatestAritlce(){
+    	this.homeService.getLatestAritlce().then((res: any)=>{
+            this.latestList = res.data;
+        });
+    }
 	ngOnInit() {
 		this.getHotList();
 		this.getLatestComent();
 		this.getReadNumAritlce();
+		this.getLatestAritlce();
 	}
 
 }

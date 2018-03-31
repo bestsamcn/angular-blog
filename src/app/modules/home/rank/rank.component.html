@@ -1,13 +1,13 @@
 <div class="moveup article-rank margin-top-30">
     <div class="tab-list">
-        <a href="javascript:;" [ngClass]="{'active':activeIndex==1 }" class="active" (click)="onTabChange(1)">最火</a>
-        <a href="javascript:;" [ngClass]="{'active':activeIndex==2 }" (click)="onTabChange(2)">最新</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==1 }" class="active" (click)="onTabChange(1)">最新</a>
+        <a href="javascript:;" [ngClass]="{'active':activeIndex==2 }" (click)="onTabChange(2)">最火</a>
         <a href="javascript:;" [ngClass]="{'active':activeIndex==3 }" (click)="onTabChange(3)">评论</a>
         <a href="javascript:;" [ngClass]="{'active':activeIndex==4 }" (click)="onTabChange(4)">阅读</a>
     </div>
     <div class="tab-cont">
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutLeft':activeIndex!=1}">
-            <a *ngFor="let item of hotList" [routerLink]="['/article/detail/'+item._id]">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==1, 'bounceOutLeft':activeIndex!=1}" >
+            <a *ngFor="let item of latestList" [routerLink]="['/article/detail/'+item._id]">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">
@@ -20,8 +20,8 @@
                 </div>
             </a>
         </div>
-        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}" >
-            <a *ngFor="let item of homeService.articleList.slice(0, 4)" [routerLink]="['/article/detail/'+item._id]">
+        <div class="popular animated" [ngClass]="{'bounceInRight':activeIndex==2, 'bounceOutLeft':activeIndex!=2}">
+            <a *ngFor="let item of hotList" [routerLink]="['/article/detail/'+item._id]">
                 <div class="img">
                     <div class="img-box">
                         <img *ngIf="!!item.poster" [src]="POSTER_URL+item.poster">

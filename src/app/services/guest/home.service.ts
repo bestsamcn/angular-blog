@@ -47,6 +47,11 @@ export class HomeService {
 		return this.request.get({url:'/article/getList', params:{type:2, pageIndex:1, pageSize:4}});
 	}
 
+	//获取编辑时间倒序文章列表
+	getLatestAritlce(){
+		return this.request.get({url:'/article/getList', params:{type:3, pageIndex:1, pageSize:4}});
+	}
+
 	//获取热词列表
 	getHotWordList(){
 		this.request.get({url:'/hot/getList', params:{type:2, pageIndex:1, pageSize:4}}).then((res: any)=>{
