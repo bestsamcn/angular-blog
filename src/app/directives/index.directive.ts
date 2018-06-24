@@ -21,7 +21,7 @@ export class SidebarScrollDirective implements OnChanges, OnDestroy{
 		document.removeEventListener('resize', this.slideFunc);
     }
     scroll(el){
-		let _body = document.body;
+		let _body = document.documentElement;
 		let _pNode = el.parentNode;
 		el.slideBar = ()=>{
 			//滚动的极限距离
